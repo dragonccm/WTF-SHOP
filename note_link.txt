@@ -1,0 +1,1 @@
+animation tailwind :'https://www.tailwindcss-animated.com/configurator.html?animation=shake&count=infinite&duration=1000&delay=100&ease=ease-linear'
