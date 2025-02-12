@@ -20,10 +20,10 @@ export default function Categories() {
                     height={180}
               className="absolute -bottom-2 object-cover "
             />
-      <div className="container mx-auto px-4 bg-white py-6 rounded-xl shadow-md">
+      <div className="container mx-auto px-4 bg-cate py-6 rounded-xl shadow-md">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {categories.map((category) => (
-            <Card key={category.name} className="bg-slate-50 transition duration-250 ease-in-out hover:text-amber-600 hover:-translate-y-1 hover:scale-105 hover:bg-[#fef8f0] cursor-pointer">
+            <Card key={category.name} className="box-bg transition duration-700 ease-in-out hover:text-amber-600 hover:-translate-y-1 hover:scale-105 hover:bg-[var(--box-bg)] hover:border-orange-500 cursor-pointer">
               <CardContent className="p-6 text-center">
                 <div className="mb-4 flex justify-center">
                   <Image
@@ -34,7 +34,7 @@ export default function Categories() {
                     className="rounded-full"
                   />
                 </div>
-                <h3 className="font-semibold text-xl">{category.name}</h3>
+                <h3 className="font-semibold text-xl text-1">{category.name}</h3>
               </CardContent>
             </Card>
           ))}

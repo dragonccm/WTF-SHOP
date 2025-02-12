@@ -11,6 +11,8 @@ const restaurants = [
     location: "Seattle",
     distance: "1 km",
     estimatedTime: "8 min",
+    promotion:null,
+    category: "food"
   },
   {
     id: "burger-bliss",
@@ -22,6 +24,8 @@ const restaurants = [
     location: "Seattle",
     distance: "2 km",
     estimatedTime: "15 min",
+    promotion:null,
+    category: "food"
   },
   {
     id: "sushi-spot",
@@ -33,6 +37,8 @@ const restaurants = [
     location: "Seattle",
     distance: "0.5 km",
     estimatedTime: "12 min",
+    promotion:null,
+    category: "food"
   },
   {
     id: "sushi-spot",
@@ -44,6 +50,8 @@ const restaurants = [
     location: "Seattle",
     distance: "0.5 km",
     estimatedTime: "12 min",
+    promotion:null,
+    category: "food"
   },
   {
     id: "mocha-magic",
@@ -55,6 +63,8 @@ const restaurants = [
     location: "Seattle",
     distance: "1 km",
     estimatedTime: "8 min",
+    promotion:null,
+    category: "food"
   },
   {
     id: "burger-bliss",
@@ -66,6 +76,8 @@ const restaurants = [
     location: "Seattle",
     distance: "2 km",
     estimatedTime: "15 min",
+    promotion:null,
+    category: "food"
   },
   {
     id: "sushi-spot",
@@ -77,6 +89,8 @@ const restaurants = [
     location: "Seattle",
     distance: "0.5 km",
     estimatedTime: "12 min",
+    promotion:null,
+    category: "food"
   },
   {
     id: "sushi-spot",
@@ -88,16 +102,18 @@ const restaurants = [
     location: "Seattle",
     distance: "0.5 km",
     estimatedTime: "12 min",
+    promotion:null,
+    category: "food"
   },
 ];
 
 export default function FeaturedRestaurants() {
   return (
-    <section className="p-4 bg-gray-100">
+    <section className="p-4 bg-gray">
       <div className="mx-auto container">
         <div className="flex justify-between items-center">
           <div>
-            <div className="h-0.5 w-20 mt-8 bg-slate-100 overflow-hidden">
+            <div className="h-0.5 w-20 mt-8 mb-2 bg-slate-100 overflow-hidden">
               <div className="animate-progress w-full h-full bg-orange-500 origin-left-right"></div>
             </div>
             <h2 className="text-3xl mb-8 font-bold  font-black">

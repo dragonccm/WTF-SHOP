@@ -16,16 +16,16 @@ export default function PaymentPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gray-50 mt-16">
+    <div className="min-h-screen box-bg mt-16">
       {/* Progress Tracker */}
       <div className="container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-6 grid-cols-6 gap-8">
           {/* Addresses Section */}
           <div className="col-span-4">
-            <div className="bg-white shadow-md p-6 mb-8">
+            <div className="bg-cate shadow-md p-6 mb-8">
               <CheckoutProgress currentStep={2} />
             </div>
-            <div className="bg-white shadow-md p-6 ">
+            <div className="bg-cate shadow-md p-6 ">
               <h1 className="text-2xl font-bold mb-6">
                 Chọn phương thức thanh toán
               </h1>
@@ -44,7 +44,7 @@ export default function PaymentPage() {
                   </div>
 
                   {paymentMethod === "card" && (
-                    <Card>
+                    <Card className="bg-transparent border-orange-500">
                       <CardContent className="p-4 space-y-4">
                         <Input placeholder="Số thẻ" />
                         <div className="grid grid-cols-2 gap-4">
@@ -67,9 +67,9 @@ export default function PaymentPage() {
                   </div>
 
                   {paymentMethod === "momo" && (
-                    <Card>
-                      <CardContent className="p-4">
-                        <Input placeholder="Số điện thoại MoMo" />
+                    <Card className="bg-transparent shadow-none border-transparent">
+                      <CardContent className="p-4 ">
+                        <Input placeholder="Số điện thoại MoMo" className="border-gray"/>
                       </CardContent>
                     </Card>
                   )}

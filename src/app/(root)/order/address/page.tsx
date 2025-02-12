@@ -55,13 +55,13 @@ export default function AddressPage() {
 
  
   return (
-    <div className="min-h-screen bg-gray-50 mt-16">
+    <div className="min-h-screen box-bg mt-16">
       {/* Progress Tracker */}
       <div className="container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-6 grid-cols-6 gap-8">
           {/* Addresses Section */}
           <div className="col-span-4">
-            <div className="bg-white shadow-md p-6 mb-8">
+            <div className="bg-cate shadow-md p-6 mb-8">
               {/* <div className="flex justify-between items-center max-w-3xl mx-auto ">
                 <div className="flex-1 flex items-center">
                   <div className="relative flex jussify-center flex-col items-center">
@@ -101,7 +101,7 @@ export default function AddressPage() {
               </div> */}
                <CheckoutProgress currentStep={1}/>
             </div>
-            <div className="bg-white shadow-md p-6 ">
+            <div className="bg-cate shadow-md p-6 ">
               <h2 className="text-xl font-semibold mb-4">
                 Select Saved Address
               </h2>
@@ -121,7 +121,7 @@ export default function AddressPage() {
                         onClick={() => setSelectedAddress(address.id)}>
                         
                     <CardContent className="p-0">
-                      <div className="flex justify-between items-center mb-2 border border-gray-200 p-3">
+                      <div className="flex justify-between items-center mb-2 border-b border-gray-200 p-3">
                         <div className="flex items-center gap-2">
                           {address.type === "home" ? (
                             <Home className="w-5 h-5 text-orange-500" />
@@ -141,8 +141,8 @@ export default function AddressPage() {
                         </Button>
                       </div>
                             <div className="p-3">
-                            <p className="text-gray-600 mb-2">{address.address}</p>
-                                <p className="text-gray-500 mb-2">{address.phone}</p>
+                            <p className="text-1 mb-2">{address.address}</p>
+                                <p className="text-2 mb-2">{address.phone}</p>
                                 <hr />
                       <Button
                         variant="secondary"
@@ -160,7 +160,7 @@ export default function AddressPage() {
                  <Button
                 onClick={() => setIsAddingAddress(true)}
                   variant="outline"
-                   className="rounded-md cursor-pointer border-orange-500 h-100 transition-shadow hover:shadow-md hover:bg-orange-50"
+                   className="rounded-md cursor-pointer text-1 border-orange-500 h-100 transition-shadow hover:shadow-md hover:bg-gray hover:text-orange-500"
                   // className="w-full mt-4 border-orange-500 text-orange-500 hover:bg-orange-50"
                 >
                 <Plus className="w-4 h-4 mr-2" />

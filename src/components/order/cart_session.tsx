@@ -61,7 +61,7 @@ export default function Cart_session() {
       const discount = subtotal * 0.1;
       const total = subtotal - discount;
   return (
-    <div className="bg-white shadow-md p-6 col-span-2 relative">
+    <div className="bg-cate shadow-md p-6 col-span-2 relative">
     <div className="sticky top-20">
     <h2 className="text-xl font-semibold mb-6">Cart Items</h2>
     <div className="space-y-6">

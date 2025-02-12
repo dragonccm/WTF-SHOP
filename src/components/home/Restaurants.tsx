@@ -95,13 +95,13 @@ export default function Restaurants() {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <div className="h-0.5 w-20 bg-slate-100 overflow-hidden">
+        <div className="h-0.5 w-20 mb-2 bg-slate-100 overflow-hidden">
           <div className="animate-progress w-full h-full bg-orange-500 origin-left-right"></div>
         </div>
         <h2 className="text-3xl font-bold  font-black">
           Popular Restaurants
         </h2>
-        <h5 className="mb-8 text-xl text-gray-500">
+        <h5 className="mb-8 text-lg text-2">
         Find nearby popular Restaurants.
         </h5>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

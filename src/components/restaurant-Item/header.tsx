@@ -107,8 +107,8 @@ export default function RestaurantHeader({
 
       {/* Header sticky khi scroll */}
       <div
-        className={`fixed top-0 left-0 right-0 bg-white shadow-md z-50 transform transition-transform duration-300 ${
-          isSticky ? "translate-y-0" : "-translate-y-full"
+        className={`fixed top-[0px] left-0 right-0 bg-gray shadow-md z-50 transform transition-transform duration-300 ${
+          isSticky ? "translate-y-0 top-[63px]" : "-translate-y-full"
         }`}>
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <h2 className="font-semibold truncate">{restaurant.name}</h2>

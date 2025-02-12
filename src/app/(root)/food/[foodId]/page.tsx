@@ -50,8 +50,9 @@ export default function FoodItemPage({ params }: { params: { restaurantId: strin
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 mt-16">
-      <div className="grid md:grid-cols-2 gap-8">
+    <div className=" bg-main ">
+      <div className='container mx-auto px-4 py-8 mt-16'>
+      <div className=" grid md:grid-cols-2 gap-8">
         <div className="space-y-4">
           <div className="relative aspect-square md:aspect-[4/3] overflow-hidden rounded-lg">
             <Image
@@ -105,7 +106,8 @@ export default function FoodItemPage({ params }: { params: { restaurantId: strin
       <Suspense fallback={<div>Đang tải món liên quan...</div>}>
         <RelatedItems categoryId={foodItem.category} currentItemId={foodItem.id.toString()} />
       </Suspense>
-    </div>
+      </div>
+      </div>
   )
 }
 

@@ -32,15 +32,15 @@ export default function TagSelection({ tags, selectedTag, baseUrl }: TagSelectio
   }
 
   return (
-    <ScrollArea className="w-full whitespace-nowrap rounded-md border">
-      <div className="flex w-max space-x-2 p-4">
+    <ScrollArea className="w-full whitespace-nowrap rounded-md border bg-sidebar">
+      <div className="flex flex-col p-4">
         <button
           onClick={() => handleTagClick('all')}
           className={cn(
-            "inline-flex items-center justify-center whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+            "inline-flex items-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
             selectedTag === 'all' 
               ? "bg-primary text-primary-foreground" 
-              : "bg-muted hover:bg-muted/80"
+              : "bg-transparent hover:bg-muted/80"
           )}
         >
           Tất cả
@@ -50,10 +50,10 @@ export default function TagSelection({ tags, selectedTag, baseUrl }: TagSelectio
             key={tag.id}
             onClick={() => handleTagClick(tag.id)}
             className={cn(
-              "inline-flex items-center justify-center whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+              "inline-flex items-center  whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
               selectedTag === tag.id 
                 ? "bg-primary text-primary-foreground" 
-                : "bg-muted hover:bg-muted/80"
+                : "bg-transparent hover:bg-muted/80"
             )}
           >
             {tag.name}

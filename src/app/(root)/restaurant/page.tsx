@@ -22,7 +22,7 @@ const allDeals = Array.from({ length: 50 }, (_, index) => ({
   name: `Nhà hàng mẫu ${index + 1}`,
   image: "https://angular.pixelstrap.net/zomo/assets/images/product/vp-11.png",
   cuisineTypes: ["Món Việt Nam", "Đồ ăn"],
-  rating: `${(Math.random() * 5).toFixed(1)}`,
+  rating: parseFloat((Math.random() * 5).toFixed(1)),
   location: "123 Đường mẫu, Ninh Kiều",
   distance: `${(Math.random() * 5).toFixed(1)} km`,
   estimatedTime: `${Math.floor(Math.random() * 30)} phút`,
@@ -68,7 +68,7 @@ export default function DealsPage({ searchParams }: DealsPageProps) {
       />
 
       <Suspense fallback={<DealsGridSkeleton />}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-4">
           {currentDeals.map((deal) => (
             <DealCard
               key={deal.id}

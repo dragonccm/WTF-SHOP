@@ -13,11 +13,11 @@ interface RestaurantCardProps {
   location: string;
   distance: string;
   estimatedTime: string;
-  promotion: {
+  promotion?: {
     title: string;
     discount: string;
-  };
-  category: string;
+  } | null;
+  category?: string|null;
 }
 
 export default function RestaurantCard({
@@ -34,8 +34,8 @@ export default function RestaurantCard({
 }: RestaurantCardProps) {
   return (
     <Link href={`/restaurant/${id}`}>
-      <Card className="overflow-hidden hover:shadow-lg transition-shadow p-4">
-        <CardHeader className="p-0 mb-4">
+      <Card className="overflow-hidden hover:shadow-lg hover:border-orange-500 transition-shadow p-2">
+        <CardHeader className="p-0 mb-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
             <Image
               src={image}
@@ -43,29 +43,30 @@ export default function RestaurantCard({
               fill
               className="object-cover transition-transform hover:scale-105"
             />
-             {promotion&&<div className="absolute top-3 left-3">
+             {promotion&&<div className="absolute top-3 left-1">
               <Badge variant="destructive" className="flex items-center gap-1">
                 <Percent className="h-3 w-3" />
                 {promotion.discount}
               </Badge>
             </div>}
-          </div>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <h3 className=" text-lg">{name}</h3>
-            <div className="flex items-center gap-1 bg-green-50 text-green-700 px-2 py-1 rounded-md">
+            <div className="absolute top-3 right-1 flex items-center gap-1 bg-green-50 text-green-700 px-2  rounded-md">
               <Star className="h-4 w-4 fill-current " />
               <span className="text-sm font-medium">{rating}</span>
             </div>
           </div>
+        </CardHeader>
+        <CardContent className="px-2 py-0">
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <h3 className=" text-lg">{name}</h3>
+            
+          </div>
 
-          <p className="text-muted-foreground text-sm mb-3">
+          {/* <p className="text-muted-foreground text-sm mb-3">
             {cuisineTypes.join(", ")}
-          </p>
+          </p> */}
           <div className="flex items-center gap-1 text-muted-foreground">
               <MapPin className="h-[16px] w-[16px]" />
-              <span>{location}</span>
+              <span className="text-sm">{location}</span>
             </div>
           <div className="flex items-center gap-4 text-sm text-muted-foreground justify-between mb-3">
            

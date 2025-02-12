@@ -4,9 +4,43 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
 }
 
 @layer utilities {
+  .text-1 {
+    color: hsl(var(--text-1));
+  }
+
+  .text-2 {
+    color: hsl(var(--text-2));
+  }
+
+  .text-another {
+    color: hsl(var(--text-another));
+  }
+  .bg-cate {
+    background-color: hsl(var(--bg-cate));
+  }
+  .bg-another {
+    background-color: hsl(var(--bg-another));
+  }
+  .bg-main {
+    background-color: hsl(var(--background));
+  }
+
+  .bg-gray {
+    background-color: hsl(var(--bg-gray));
+  }
+
+  .bg-sidebar {
+    background-color: hsl(var(--bg-sidebar));
+  }
+
+  .box-bg {
+    background-color: hsl(var(--box-bg));
+  }
+
   .text-balance {
     text-wrap: balance;
   }
@@ -48,26 +82,36 @@ body {
 
   .toggle_home {
     border-radius: 0;
+    @apply pb-4 px-4 text-[#747474];
+
+    &:hover {
+      background-color: transparent !important;
+    }
 
     &.data-\[state\=on\]\:text-accent-foreground[data-state="on"] {
-      color: #f2a93e;
+      color: #f97316;
+      background-color: transparent !important;
     }
 
     &.data-\[state\=on\]\:bg-accent[data-state="on"] {
-      border-bottom: 2px solid #f2a93e;
+      border-bottom: 2px solid #f97316;
     }
   }
-  .checkbox_main{
+
+  .checkbox_main {
     @apply border-amber-600;
-    &.data-\[state\=checked\]\:bg-primary[data-state="checked"]{
+
+    &.data-\[state\=checked\]\:bg-primary[data-state="checked"] {
       background-color: #ff7215 !important;
     }
   }
-  .radio_main{
-    @apply border-amber-600 ;
+
+  .radio_main {
+    @apply border-amber-600;
     color: transparent;
   }
-  .radio_main svg{
+
+  .radio_main svg {
     @apply fill-orange-600;
   }
 
@@ -75,7 +119,15 @@ body {
 
 @layer base {
   :root {
+    --text-1: 0 0% 0%;
+    --text-2: 215 16% 47%;
+    --text-another: 0 0% 100%;
+    --box-bg: 0 0% 98%;
+    --bg-cate: 0 0% 100%;
+    --bg-another: 0 0% 30%;
     --background: 0 0% 100%;
+    --bg-gray: 0 0% 98%;
+    --bg-sidebar: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -111,9 +163,19 @@ body {
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --text-1: 0 0% 98%;
+    --text-2: 0 0% 81.34%;
+    --text-another: 0 0% 1%;
+
+    --box-bg: 200 6% 19%;
+    --bg-cate: 195 6% 13%;
+    --bg-another: 195 4% 57%;
+
+    --bg-sidebar: 195 6% 13%;
+    --background: 195 6% 13%;
+    --bg-gray: 195 7% 11%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 0 0% 20%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;

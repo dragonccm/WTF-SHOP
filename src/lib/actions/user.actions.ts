@@ -57,7 +57,8 @@ const checklogin = async (credentials: any) => {
           Phone: user.Phone,
           dob: user.dob,
           hometown: user.hometown,
-          __v: user.__v
+          __v: user.__v,
+          accessToken: ''
         };
 
         return newUser;

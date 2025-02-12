@@ -1,10 +1,10 @@
-
-import NextAuth, { Account, User as AuthUser } from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { checklogin } from "../../../../lib/actions/user.actions";
 import jwt from "jsonwebtoken";
 
-export const authOptions = {
+// Chỉ khai báo authOptions nhưng không export
+const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -14,11 +14,11 @@ export const authOptions = {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials: Record<"username" | "password", string> | undefined) {
+        if (!credentials) return null;
         const user = await checklogin(credentials);
 
         if (user) {
-          // Tạo access token
           const accessToken = jwt.sign(
             { userId: user._id },
             process.env.NEXTAUTH_SECRET!,
@@ -38,14 +38,13 @@ export const authOptions = {
     newUser: "/register",
   },
   callbacks: {
-    async signIn({ user, account }: { user: AuthUser; account: Account }) {
+    async signIn({ user, account }: { user: any; account: any }) {
       if (account?.provider === "credentials") {
         return true;
       }
-      return false; // Trả về false nếu không hợp lệ
+      return false;
     },
     async session({ session, token }: { session: any; token: any }) {
-      // Bao gồm _id và accessToken trong session
       if (token.id) {
         session.user = {
           ...session.user,
@@ -57,7 +56,7 @@ export const authOptions = {
     },
     async jwt({ token, user }: { token: any; user?: any }) {
       if (user) {
-        token.id = user._id.toString(); // Chuyển id thành chuỗi
+        token.id = user._id.toString();
         token.accessToken = user.accessToken;
       }
       return token;
@@ -65,5 +64,6 @@ export const authOptions = {
   },
 };
 
+// Export handler trực tiếp từ NextAuth
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

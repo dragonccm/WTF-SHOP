@@ -82,11 +82,11 @@ export default function BrandForYou() {
         className="absolute -bottom-2 object-cover "
       />
       <div className="container mx-auto">
-        <div className="h-0.5 w-20 mt-8 bg-slate-100 overflow-hidden">
+        <div className="h-0.5 w-20 mt-8 mb-2 bg-slate-100 overflow-hidden">
           <div className="animate-progress w-full h-full bg-orange-500 origin-left-right"></div>
         </div>
         <h2 className="text-3xl font-bold  font-black">Brand For You</h2>
-        <h5 className="mb-8 text-xl text-gray-500 ">
+        <h5 className="mb-8 text-lg text-gray-500 ">
           Browse out top brands here to discover different food cuision.
         </h5>
         <Carousel

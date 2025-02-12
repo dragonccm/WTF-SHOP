@@ -21,12 +21,12 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature) => (
-            <Card key={feature.title}>
+            <Card key={feature.title} className="box-bg">
               <CardHeader>
                 <div className="mb-4">{feature.icon}</div>
                 <CardTitle>{feature.title}</CardTitle>

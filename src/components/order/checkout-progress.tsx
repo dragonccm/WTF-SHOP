@@ -24,7 +24,8 @@ export default function CheckoutProgress({ currentStep }: CheckoutProgressProps)
                 index <= currentStep ? 'text-white' : 'text-gray-500'
               }`} />
             </div>
-            <div className="text-sm mt-2 text-orange-400">{step.label}</div>
+            <div className={`text-sm mt-2  ${index <= currentStep ? 'text-orange-400' : 'text-2'
+              }`}>{step.label}</div>
           </div>
           {index < steps.length - 1 && (
             <div className={`flex-1 h-px border-t-2 border-dotted mb-8 ${

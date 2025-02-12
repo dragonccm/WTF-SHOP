@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 // Trang chính hiển thị chi tiết nhà hàng
 import RestaurantHeader from "@/components/restaurant-Item/header";
 import MenuSection from "@/components/restaurant-Item/menu-section";
@@ -5,6 +8,18 @@ import CartSheet from "@/components/restaurant-Item/cart-sheet";
 import CategorySidebar from "@/components/restaurant-Item/category-sidebar";
 import Image from "next/image";
 import VoucherList from "@/components/voucher-list";
+
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Star, Grid, LayoutGrid, List } from "lucide-react";
+import { cn } from "@/lib/utils";
+
 // Dữ liệu mẫu của nhà hàng
 const restaurantData = {
   name: "Bún Đậu Mắm Tôm Cô Hương - Bánh Bạch Tuộc Và Bánh Cá",
@@ -272,24 +287,84 @@ export default function RestaurantPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const [viewMode, setViewMode] = useState<"grid" | "list">("list");
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray">
       {/* Header với ảnh cover và thông tin nhà hàng */}
       <RestaurantHeader restaurant={restaurantData} />
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="flex gap-6">
+      <div className="  box-bg ">
+        <div className="container mx-auto px-4 py-12 flex gap-6">
           {/* Sidebar danh mục - Ẩn trên mobile */}
-          <div className="hidden lg:block w-64">
+          <div className="hidden lg:block w-64 basis-1/5">
             <div className="sticky top-20">
               <CategorySidebar categories={menuCategories} />
             </div>
           </div>
 
           {/* Danh sách món ăn */}
-          <div className="flex-1">
-            {/* Danh sách voucher */}
-            <VoucherList />
+          <div className="basis-3/5">
+            {/* Toolbar */}
+            <div className="bg-sidebar flex flex-wrap items-center justify-between gap-4 mb-2  bg-white p-2 rounded-lg">
+              <div className="flex items-center gap-4">
+              <Button
+                  variant="ghost"
+                  size="icon"
+                  className={cn(
+                    "hover:bg-gray-100 hover:text-black",
+                    viewMode === "list" && "bg-gray border border-orange-500"
+                  )}
+                  onClick={() => setViewMode("list")}>
+                  <List className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={cn(
+                    "hover:bg-gray-100 hover:text-black",
+                    viewMode === "grid" && "bg-gray border border-orange-500"
+                  )}
+                  onClick={() => setViewMode("grid")}>
+                  <Grid className="h-4 w-4" />
+                </Button>
+              
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Select defaultValue="latest">
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Sort by" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="latest">Sort by latest</SelectItem>
+                    <SelectItem value="popularity">
+                      Sort by popularity
+                    </SelectItem>
+                    <SelectItem value="rating">Sort by rating</SelectItem>
+                    <SelectItem value="price-low">
+                      Sort by price: low to high
+                    </SelectItem>
+                    <SelectItem value="price-high">
+                      Sort by price: high to low
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 mb-6">
+              <Button
+                variant="link"
+                className="text-blue-600 h-auto p-0"
+                onClick={() => {
+                  // Clear all filters
+                }}>
+                Clear filters
+              </Button>
+              <span>•</span>
+              <span className="text-sm text-gray-500">In Stock</span>
+              <span>•</span>
+              <span className="text-sm text-gray-500">Max $30.00</span>
+            </div>
             {menuCategories.map((category) => (
               <MenuSection
                 key={category.id}
@@ -297,10 +372,11 @@ export default function RestaurantPage({
                 items={menuItems.filter(
                   (item) => item.categoryId === category.id
                 )}
+                viewMode={viewMode}
               />
             ))}
           </div>
-          <div>
+          <div className="basis-1/5">
             <div className="px-2 py-4 bg-orange-500 flex items-center flex-col justify-center rounded-md text-white">
               <Image
                 src="/images/QR.png"
@@ -311,6 +387,8 @@ export default function RestaurantPage({
               />
               <span className="mt-4">Quét mã để đặt món trên app nhá!</span>
             </div>
+            {/* Danh sách voucher */}
+            <VoucherList />
           </div>
         </div>
       </div>
