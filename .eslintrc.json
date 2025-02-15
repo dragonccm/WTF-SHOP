@@ -5,8 +5,5 @@
     "standard",
     "plugin:tailwindcss/recommended",
     "prettier"
-  ],
-  "plugins": [
-    "tailwindcss"
   ]
 }
