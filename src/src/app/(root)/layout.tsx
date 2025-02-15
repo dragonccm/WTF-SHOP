@@ -13,7 +13,6 @@ import { connectToDB } from "@/lib/mongoose";
 import ReduxProvider from "../../provider/ReduxProvider";
 import SessionProvider from "../../provider/SessionProvider";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Sidebar } from "@/components/seller/sidebar"
 
 export const metadata: Metadata = {
   title: "WTF Foods",
@@ -40,7 +39,10 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange>
             <SessionProvider session={session}>
-                {children}
+              <Navbar />
+              {children}
+              <Footer />
+              <Toaster />
             </SessionProvider>
           </ThemeProvider>
         </ReduxProvider>

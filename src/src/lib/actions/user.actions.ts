@@ -224,7 +224,7 @@ const checkpass = async (data: any) => {
 };
  const getalluser = async () => {
   try {
-    const users = await UserAccount.find({}).maxTimeMS(50000);
+    const users = await UserAccount.findOne({}).maxTimeMS(50000);
     return users;
   }
   catch (error: any) {
