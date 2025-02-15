@@ -222,15 +222,7 @@ const checkpass = async (data: any) => {
     return { err: 1, tus: error.message };
   }
 };
- const getalluser = async () => {
-  try {
-    const users = await UserAccount.find({}).maxTimeMS(50000);
-    return users;
-  }
-  catch (error: any) {
-    return { err: error.message };
-  }
-}
+
 export {
   createUser,
   checklogin,
@@ -239,5 +231,4 @@ export {
   updateUserAndPass,
   updateUser,
   updateRole,
-  getalluser
 };

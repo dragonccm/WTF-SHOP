@@ -40,7 +40,14 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange>
             <SessionProvider session={session}>
-                {children}
+              <div className="min-h-screen bg-white">
+                <Sidebar />
+                <main className="ml-36">
+                  <div className="p-8">
+                    {children}                    
+                  </div>
+                </main>
+              </div>
             </SessionProvider>
           </ThemeProvider>
         </ReduxProvider>
