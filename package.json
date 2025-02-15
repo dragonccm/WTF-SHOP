@@ -62,7 +62,8 @@
     "tailwindcss-animate": "^1.0.7",
     "uploadthing": "^7.4.4",
     "zod": "^3.24.1",
-    "eslint-plugin-tailwindcss": "^3.0.0"
+    "eslint-plugin-tailwindcss": "^3.0.0",
+    "eslint-config-prettier": "^9.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

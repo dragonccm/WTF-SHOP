@@ -222,7 +222,7 @@ const checkpass = async (data: any) => {
     return { err: 1, tus: error.message };
   }
 };
-const getalluser = async () => {
+const getall = async () => {
   try {
     const user = await UserAccount.findOne({})
     return { err: null, user };
@@ -238,5 +238,5 @@ export {
   updateUserAndPass,
   updateUser,
   updateRole,
-  getalluser
+  getall
 };
