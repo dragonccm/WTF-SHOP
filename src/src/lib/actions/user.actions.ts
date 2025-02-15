@@ -222,12 +222,11 @@ const checkpass = async (data: any) => {
     return { err: 1, tus: error.message };
   }
 };
- const getalluser = async () => {
+const getalluser = async () => {
   try {
-    const users = await UserAccount.findOne({}).maxTimeMS(50000);
-    return users;
-  }
-  catch (error: any) {
+    const user = await UserAccount.findOne({})
+    return { err: null, user };
+  } catch (error: any) {
     return { err: error.message };
   }
 }

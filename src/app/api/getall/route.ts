@@ -1,4 +1,4 @@
-import { getalluser } from "../../../lib/actions/user.actions";
+import {getalluser } from "../../../lib/actions/user.actions";
 import { NextResponse } from "next/server";
 export const GET = async (request: any) => {
     try {
